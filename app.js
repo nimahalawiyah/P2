@@ -15,7 +15,7 @@ class App extends Component {
     this.getfui();
   }
   getfui= _ =>{
-    fetch('http://localhost:4000/file')
+    fetch('/file')
     .then(response=>response.json())
     .then(response=>this.setState({fuis:response.data}))
     .catch(err=>console.error(err))
@@ -32,7 +32,7 @@ class App extends Component {
     let data=new FormData();
     data.append('file', this.state.selectedFile);
     data.append('name', this.refs.nama.value);
-    axios.post('http://localhost:4000/file/add',data)
+    axios.post('/file/add',data)
     .then(console.log(data))
     .catch(err=>console.error(err))
   }
